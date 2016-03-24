@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Demo3 extends Application {
+public class AnonymousClassDemo extends Application {
         @Override
         public void start(Stage primaryStage) throws Exception {
             VBox pane = new VBox(10);

@@ -1,8 +1,8 @@
-package p5;
+package p2;
 
 /*
  * Created by mmendez9 on 3/22/2016.
- * Button handler is
+ * Button handlers and inner classes
  */
 
 import javafx.application.Application;
@@ -15,51 +15,56 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Demo5 extends Application {
-    Button btUp;
-    Button btDown;
+public class InnerClassDemo extends Application {
         @Override
         public void start(Stage primaryStage) throws Exception {
             VBox pane = new VBox(10);
             pane.setPadding(new Insets(20, 20, 20, 20));
 
-            ButtonHandler handler = new ButtonHandler();
-
-            btUp = new Button("▲");
+            Button btUp = new Button("▲");
             btUp.setPrefWidth(100);
-            btUp.setOnAction(handler);
+            UpHandler upHandler = new UpHandler();
+            btUp.setOnAction(upHandler);
 
-            btDown = new Button("▼");
+            Button btDown = new Button("▼");
             btDown.setPrefWidth(100);
-            btDown.setOnAction(handler);
+            DownHandler downHandler = new DownHandler();
+            btDown.setOnAction(downHandler);
 
             pane.getChildren().addAll(btUp, btDown);
 
             Scene scene = new Scene(pane);
-            primaryStage.setTitle("E_D5");
+            primaryStage.setTitle("E_D2");
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();
         }
-    class ButtonHandler implements EventHandler<ActionEvent> {
+    class UpHandler implements EventHandler<ActionEvent> {
 
         @Override
         public void handle(ActionEvent event) {
-            String message;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Button Event");
             alert.setHeaderText(null);
+            alert.setContentText("Up Button Pressed");
 
-            if (event.getSource() == btUp)
-                message = "Up Button Pressed";
-            else
-                message = "Down Button Pressed";
-
-            alert.setContentText(message);
             alert.showAndWait();
         }
     }
+
+    class DownHandler implements EventHandler<ActionEvent> {
+
+        @Override
+        public void handle(ActionEvent event) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Button Event");
+            alert.setHeaderText(null);
+            alert.setContentText("Down Button Pressed");
+
+            alert.showAndWait();}
+    }
 }
+
 
 
 
