@@ -6,6 +6,8 @@ package p9;
  */
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,14 +18,17 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class RadioButton_CheckBox_Demo extends Application {
 
     // Create text here so it can be changed
-    Text text = new Text("Click on the Buttons and Boxes");
+    private Text text = new Text("Click on the Buttons and Boxes");
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -66,6 +71,47 @@ public class RadioButton_CheckBox_Demo extends Application {
         pane.setLeft(pane1);
         pane.setCenter(pane2);
         pane.setRight(pane3);
+
+        // set different options for the text's font
+        Font fontBoldItalic = Font.font("Times", FontWeight.BOLD, FontPosture.ITALIC, 20);
+        Font fontBold = Font.font("Times", FontWeight.BOLD, FontPosture.REGULAR, 20);
+        Font fontItalic = Font.font("Times", FontWeight.NORMAL, FontPosture.ITALIC, 20);
+        Font fontNormal = Font.font("Times", FontWeight.NORMAL, FontPosture.REGULAR, 20);
+
+        // Set different options for the text's color
+        Color colorRed = Color.RED;
+        Color colorGreen = Color.GREEN;
+        Color colorBlue = Color.BLUE;
+
+        // Set action events
+        EventHandler<ActionEvent> handler = e -> {
+            if (cbxBold.isSelected() && cbxItalic.isSelected()) {
+                text.setFont(fontBoldItalic);
+            }
+            else if (cbxBold.isSelected()) {
+                text.setFont(fontBold);
+            }
+            else if (cbxItalic.isSelected()) {
+                text.setFont(fontItalic);
+            }
+            else
+                text.setFont(fontNormal);
+
+            if (rbRed.isSelected())
+                text.setFill(colorRed);
+            else if (rbGreen.isSelected())
+                text.setFill(colorGreen);
+            else if (rbBlue.isSelected())
+                text.setFill(colorBlue);
+            else
+                text.setFill(Color.BLACK);
+        };
+
+        cbxBold.setOnAction(handler);
+        cbxItalic.setOnAction(handler);
+        rbBlue.setOnAction(handler);
+        rbGreen.setOnAction(handler);
+        rbRed.setOnAction(handler);
 
         // Add the main pane to a scene
         Scene scene = new Scene(pane, 500, 250);
