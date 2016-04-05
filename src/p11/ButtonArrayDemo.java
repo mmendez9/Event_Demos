@@ -1,5 +1,10 @@
 package p11;
 
+
+/*
+ * Created by mmendez9 on 4/5/2016.
+ */
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,10 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-/*
- * Created by mmendez9 on 4/5/2016.
- */
 
 public class ButtonArrayDemo extends Application{
 

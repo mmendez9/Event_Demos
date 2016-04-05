@@ -1,5 +1,9 @@
 package p12;
 
+/*
+ * Created by mmendez9 on 4/5/2016.
+ */
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -12,10 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-/*
- * Created by mmendez9 on 4/5/2016.
- */
 
 public class TimerDemo  extends Application {
 
